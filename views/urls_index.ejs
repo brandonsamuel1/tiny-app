@@ -10,7 +10,7 @@
 <ol>
   <% for(var key in urls) { %>
   <li>
-    <%= key %> <%= urls[key] %>
+    <%= key %> <%= urls[key].url %>
       <form method="POST" action="/urls/<%= key %>/delete">
 
   <button>Delete</button>
