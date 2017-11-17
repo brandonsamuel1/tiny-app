@@ -90,9 +90,9 @@ app.get("/hello", (request, response) => {
 app.get("/urls", (request, response) => {
 
 
-  let userSession = request.session.user_id;
+  let userSession = request.session.userId;
   if(userSession){
-    let user = findUser(request.session.user_id);
+    let user = findUser(request.session.userId);
     let urls = findUserURLs(user.id);
     let templateVars = {
       urls: urls,
@@ -200,7 +200,7 @@ app.post("/login", (request, response) => {
   if(user){
 
     if(bcrypt.compareSync(userPassword , user.password)){
-      request.session.user_id = user.id;
+      request.session.userId = user.id;
 
       response.redirect("/urls");
 
